@@ -12,7 +12,7 @@ import BootstrapVue from 'bootstrap-vue'
 import './mixins/common.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import VueLazyload from 'vue-lazyload'
+import Toasted from 'vue-toasted'
 
 global.jQuery = jQuery
 global.$ = jQuery
@@ -20,11 +20,24 @@ global.$ = jQuery
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
-Vue.use(VueLazyload, {
-  lazyComponent: true,
-  preLoad: 1.3,
-  attempt: 1
-})
+Vue.use(Toasted)
+
+let options = {
+  position: 'top-center',
+  mode: 'override',
+  duration: 2000,
+  type: 'error'
+}
+
+Vue.toasted.register('showMessage',
+  (payload) => {
+    if (!payload.message) {
+      return 'Oops.. Something Went Wrong..'
+    }
+    return payload.message
+  },
+  options
+)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

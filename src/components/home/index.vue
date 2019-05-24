@@ -56,47 +56,68 @@
                         v-show="statusFood === 1"
                         class="mt-4"
                         variant="danger"
+                        @click="showMessage"
                 >
                     {{ buy }}
                 </b-button>
             </div>
         </b-modal>
+        <!--<Modal :modal="modalFoods"></Modal>-->
     </div>
 </template>
 <script>
+  // import Modal from "../common/Modal"
   export default {
-    data: function () {
+    // components: {
+    //   Modal
+    // },
+    data () {
       return {
         nameFood: '',
         costFood: '',
         imgFood: '',
         statusFood: '',
-        buy: 'Mua'
+        buy: 'Mua',
+        messageBuy: 'Bạn chưa đủ tiền. Vui lòng thử lại !!!'
+        // isShowModal: false,
+        // modalFoods: {
+        //   nameFood: '',
+        // },
       }
     },
     computed: {
       listFoods: {
-        get: function () {
+        get () {
           return this.$store.getters.listFoods
         }
       },
       oneFoods: {
-        get: function () {
+        get () {
           return this.$store.getters.oneFoods
         }
       }
     },
-    created: function () {
+    created () {
       this.$store.dispatch('getFoods')
     },
     methods: {
-      showModal: function (id) {
+      showModal (id) {
         this.$store.dispatch('getOneFoods', id).then(() => {
           this.$refs['my-modal'].show()
+          // $('#exampleModal').modal('show')
           this.nameFood = this.oneFoods.name
           this.costFood = this.oneFoods.cost
           this.imgFood = this.oneFoods.image
           this.statusFood = this.oneFoods.status
+          // this.modalFoods.nameFood = this.oneFoods.name
+          // console.log(this.modalFoods.nameFood)
+        })
+      },
+      showMessage () {
+        this.$refs['my-modal'].hide()
+        this.$toasted.clear()
+        this.$toasted.global.showMessage({
+          message: this.messageBuy
         })
       }
     }
