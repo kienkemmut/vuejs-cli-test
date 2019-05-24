@@ -1,11 +1,19 @@
 <template>
   <div id="app">
+    <Header></Header>
     <router-view/>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Header from "./components/common/Header"
+import Footer from "./components/common/Footer"
 export default {
+  components: {
+    Header,
+    Footer
+  },
   name: 'App'
 }
 </script>
@@ -14,6 +22,5 @@ export default {
   #app {
     font-family: 'Noto Sans', sans-serif;
     text-align: center;
-    margin-top: 60px;
   }
 </style>

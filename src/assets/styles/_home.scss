@@ -1,0 +1,15 @@
+.stocking-color {
+  color: #9ACD32;
+}
+.out-of-stock {
+  color: #CD3232;
+}
+.card {
+  transition: all .2s ease-in-out;
+  &:hover {
+    -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+}

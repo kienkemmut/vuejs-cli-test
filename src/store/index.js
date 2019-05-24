@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import common from './modules/common.js'
+import home from './modules/home.js'
+
 Vue.use(Vuex)
 const debug = process.env.NODE_ENV !== 'production'
 
 const store = new Vuex.Store({
   modules: {
-    common
+    common,
+    home
   },
   strict: debug
 })
