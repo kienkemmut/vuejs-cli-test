@@ -97,6 +97,12 @@
         }
       }
     },
+    watch: {
+      costFood (newValue, old) {
+        console.log(newValue, 'new')
+        console.log(old, 'old')
+      }
+    },
     created () {
       this.$store.dispatch('getFoods')
     },

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/index.vue'
+import Test from '@/components/test/index.vue'
 
 Vue.use(Router)
 const router = new Router({
@@ -26,6 +27,14 @@ const router = new Router({
         title: 'Home'
       }
     },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test,
+      meta: {
+        title: 'Test'
+      }
+    }
   ]
 
 })

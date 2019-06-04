@@ -13,3 +13,27 @@
     transform: scale(1.05);
   }
 }
+.form-login{
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(234,234,234,1);
+  padding: 1em 2em 2em 2em;
+  -webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+  h2 {
+    font-weight: bold !important;
+    color: rgba(12,93,154,1);
+  }
+  .btn-login {
+    border: none;
+    background-color: rgba(12,93,154,.7);
+    &:hover {
+      background-color: rgba(12,93,154,1);
+    }
+  }
+}

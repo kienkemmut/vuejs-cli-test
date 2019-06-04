@@ -1,7 +1,7 @@
 import * as types from '../mutation-types'
+import http from '../../utils/http-config.js'
 // import Vue from 'vue'
 // import router from '../../router'
-import http from '../../utils/http-config.js'
 
 const state = {
   listFoods: [],
